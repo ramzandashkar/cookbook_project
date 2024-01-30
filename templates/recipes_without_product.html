@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes without Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers content horizontally */
+        }
+        h1 {
+            text-align: center; /* Centers the heading */
+        }
+        table {
+            max-width: 600px; /* Sets the maximum width of the table */
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto; /* Centers the table */
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover {background-color: #f5f5f5;}
+    </style>
+</head>
+<body>
+    <h1>Рецепты без продукта или меньше 10 грамм: <em>{{ product|lower }}</em></h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название рецепта</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recipe in recipes %}
+            <tr>
+                <td>{{ recipe.id }}</td>
+                <td>{{ recipe.name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
